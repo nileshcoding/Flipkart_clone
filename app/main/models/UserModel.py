@@ -6,4 +6,8 @@ class UserModel(db.Model):
     name = db.Column(db.String(100),nullable = False)
     email = db.Column(db.String(100),nullable = False,unique = True)
     password = db.Column(db.String(50),nullable = False)
-    
+    role=db.Column(db.String(50),nullable=Flase)
+    city = db.Column(db.String(50),nullable=False)
+    state=db.Column(db.String(50),nullable=False)
+    address=db.Column(db.String(100),nullable=False)
+    pincode=dp.Column(db.String(10),nullable=False
