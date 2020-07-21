@@ -10,4 +10,4 @@ class UserModel(db.Model):
     city = db.Column(db.String(50),nullable=False)
     state=db.Column(db.String(50),nullable=False)
     address=db.Column(db.String(100),nullable=False)
-    pincode=dp.Column(db.String(10),nullable=False
+    pincode=db.Column(db.String(10),nullable=False)
