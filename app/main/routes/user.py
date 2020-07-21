@@ -14,7 +14,15 @@ def register_user():
         password = request.json["password"]
         role = request.json["role"]
     except KeyError:
-        return json.dumpd({"status": True, "message": "Enter all fields"})
+        return json.dumps({"status": True, "message": "Enter all fields"})
 
     add_user(name,email,password,role)
     return json.dumps({"status": True, "message": "User registered"})
+
+
+@user.route('/delete', methods=['POST'])
+def delete_user():
+    try:
+        auth_token = request.headers.get("auth_token")
+    except KeyError:
+        return json.dumps({"status": False, "message": "Give auth token"})
