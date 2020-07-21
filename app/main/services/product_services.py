@@ -1,6 +1,6 @@
 from app.main.settings import db
 from app.main.models.ProductModel import *
-
+import json
 
 def all_products():
     return Product.query.all()
