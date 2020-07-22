@@ -2,8 +2,8 @@ from app.main.settings import db
 from app.main.models.UserModel import User
 import json
 
-def add_user(name,email,password,role):
-    user = User(name=name, email=email, password=password, role=role)
+def add_user(name,email,password,role,address):
+    user = User(name=name, email=email, password=password, role=role,address=address)
     db.session.add(user)
     db.session.commit()
 

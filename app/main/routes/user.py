@@ -14,10 +14,11 @@ def register_user():
         email = request.json["email"]
         password = request.json["password"]
         role = request.json["role"]
+        address = request.json["address"]
     except KeyError:
         return json.dumps({"status": True, "message": "Enter all fields"})
 
-    add_user(name,email,password,role)
+    add_user(name,email,password,role,address)
     return json.dumps({"status": True, "message": "User registered"})
 
 
