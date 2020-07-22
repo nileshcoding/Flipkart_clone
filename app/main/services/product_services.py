@@ -36,4 +36,4 @@ def delete_product_db(product_id):
         db.session.commit()
         return json.dumnps({"status": True, "message": "Product deleted"})
     except:
-        return json.dumps({"status": False, "message": "Try again")
+        return json.dumps({"status": False, "message": "Try again"})

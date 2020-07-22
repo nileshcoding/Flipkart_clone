@@ -34,3 +34,8 @@ def delete_user():
             user_id = request.json["user_id"]
         except KeyError:
             return json.dumps({"status": False, "message": "Enter user id"})
+
+        result = delete_user_db()
+
+
+#@user.route('/modify',)

@@ -1,6 +1,6 @@
 from flask import Blueprint
 from flask import request
-from app.main.servives.login_service import *
+from app.main.services.login_service import *
 import time
 import json
 

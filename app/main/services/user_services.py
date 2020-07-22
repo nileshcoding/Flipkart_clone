@@ -1,5 +1,5 @@
 from app.main.settings import db
-from app.main.models import UserModel
+from app.main.models.UserModel import User
 import json
 
 def add_user(name,email,password,role):

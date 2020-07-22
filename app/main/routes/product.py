@@ -9,7 +9,7 @@ def get_products():
     return json.dumps({"products": data})
 
 
-@products.route('/add', methods=[POST])
+@products.route('/add', methods=['POST'])
 def add_product():
     try:
         auth_token = request.headers.get("auth_token")
