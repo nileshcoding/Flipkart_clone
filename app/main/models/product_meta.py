@@ -1,6 +1,6 @@
+
 from app.main.settings import db
 from . import ProductModel
-
 
 class Productmeta(db.model):
     id=db.Column(db.Integer,primary_key=True)
