@@ -2,7 +2,7 @@ from app.main.settings import db
 from . import UserModel
 
 
-class WhislistModel(db.model):
+class WhislistModel(db.Model):
     __tablename__='Mywhislist'
     id = db.Column(db.Integer, primary_key=True)
     name= db.Column(db.String(100),nullable = False)

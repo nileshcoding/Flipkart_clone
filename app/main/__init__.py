@@ -5,6 +5,8 @@ from app.main.settings import db
 #import all the blueprints from py files
 from app.main.routes.home import *
 from app.main.routes.user import *
+from app.main.routes.product import *
+from app.main.routes.login import *
 
 def create_app():
     app = Flask(__name__)
@@ -12,7 +14,9 @@ def create_app():
     db.init_app(app)
 
     #here goes all the blueprints
+    app.register_blueprint(login, url_prefix='/login')
     app.register_blueprint(home, url_prefix='/home')
     app.register_blueprint(user, url_prefix='/user')
+    app.register_blueprint(products, url_prefix='/products')
     
     return app

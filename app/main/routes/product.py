@@ -1,12 +1,14 @@
 from flask import Blueprint
 from flask import request
 from app.main.services.login_service import decode_auth_token
+from app.main.services.product_services import *
+
 products = Blueprint('products', __name__)
 
 @products.route('/', methods=['GET'])
 def get_products():
     data = all_products()
-    return json.dumps({"products": data})
+    return json.dumps({"products": str(data)})
 
 
 @products.route('/add', methods=['POST'])
@@ -16,15 +18,16 @@ def add_product():
     except KeyError:
         return json.dumps({"status": False, "message": "Log in to add product"})
 
-    data = decode_auth_token()
+    data = decode_auth_token(auth_token)
     if data["role"] == "owner":
         try:
-            productname = request.json["productname"]
-            productcategory_id = request.json["productcategory_id"]
+            product_name = request.json["product_name"]
+            product_price = request.json["product_price"]
+            product_category_id = request.json["product_category_id"]
         except KeyError:
             return json.dumps({"status": False, "message": "Enter all fields"})
 
-        data = add_product_db(productname,productcategory_id)
+        data = add_product_db(product_name,product_price,product_category_id)
         return data
     else:
         return json.dumps({"status": False, "message": "user not allowed to add product"})
