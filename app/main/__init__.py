@@ -7,6 +7,7 @@ from app.main.routes.user import *
 from app.main.routes.product import *
 from app.main.routes.login import *
 from app.main.routes.search import *
+from app.main.routes.cart import *
 
 def create_app():
     app = Flask(__name__)
@@ -17,5 +18,6 @@ def create_app():
     app.register_blueprint(user, url_prefix='/user')
     app.register_blueprint(products, url_prefix='/products')
     app.register_blueprint(search, url_prefix='/search')
+    app.register_blueprint(cart, url_prefix='/cart')
 
     return app

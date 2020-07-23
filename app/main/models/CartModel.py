@@ -1,7 +1,7 @@
 from app.main.settings import db
 from . import ProductModel,UserModel
 
-class CartModel(db.Model):
+class Cart(db.Model):
     __tablename__='cart'
     id=db.Column(db.Integer, primary_key=True)
     quantity=db.Column(db.Integer,nullable=False)
