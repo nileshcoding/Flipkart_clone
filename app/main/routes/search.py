@@ -16,9 +16,11 @@ def search_product():
     category_id = None
 
     try:
-        temp = request.json["category_id"]
+        filter = request.json["filter"]
         category_id = temp
     except KeyError:
+        pass
+    except TypeError:
         pass
 
     result = search_product_db(category_id)
