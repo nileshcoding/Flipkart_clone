@@ -7,4 +7,4 @@ class CartModel(db.Model):
     quantity=db.Column(db.Integer,nullable=False)
     total_cost=db.Column(db.Integer,nullable=False)
     user_id=db.Column(db.Integer,db.ForeignKey('user.id'))
-    product_id=db.column(db.Integer,db.ForeignKey('product.id'))
+    product_id=db.Column(db.Integer,db.ForeignKey('product.id'))
