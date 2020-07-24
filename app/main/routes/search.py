@@ -3,7 +3,6 @@ from flask import request
 import json
 from app.main.services.login_service import decode_auth_token
 from app.main.services.search_services import *
-
 search = Blueprint('search', __name__)
 
 @search.route('/', methods=['GET'])
@@ -16,12 +15,11 @@ def search_product():
     category_id = None
 
     try:
-        filter = request.json["filter"]
-        category_id = temp
+        filter = request.args.get('filter',default=None)
     except KeyError:
         pass
     except TypeError:
         pass
 
-    result = search_product_db(category_id)
+    result = search_product_db(filter)
     return json.dumps({"status": True, "products": result})

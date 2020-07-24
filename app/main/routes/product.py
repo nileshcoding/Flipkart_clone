@@ -7,8 +7,9 @@ products = Blueprint('products', __name__)
 
 @products.route('/', methods=['GET'])
 def get_products():
-    data = all_products()
-    return json.dumps({"products": str(data)})
+    page = request.args.get('page', default=1, type=int)
+    data = all_products(page)
+    return json.dumps({"products": data})
 
 
 @products.route('/add', methods=['POST'])

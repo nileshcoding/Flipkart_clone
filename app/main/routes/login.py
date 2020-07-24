@@ -19,7 +19,7 @@ def user_login():
     if user == None:
         return json.dumps({"status": False, "message": "User does not exist"})
     
-    payload = {"user_id": user.id, "email": user.email, "role": user.role, "address": user.address, "expire": time.time()+3600}
+    payload = {"user_id": user.id, "email": user.email, "role": user.role, "expire": time.time()+3600}
 
     if user.password == password:
         encoded_payload = encode_jwt(payload)
