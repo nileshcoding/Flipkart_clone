@@ -8,5 +8,6 @@ class Category(db.Model):
 
 class TreePath(db.Model):
     __tablename__ = 'Treepath'
-    ancestor = db.Column(db.Integer,db.ForeignKey('category.id'),primary_key=True)
-    descendants = db.Column(db.Integer, db.ForeignKey('category.id'),primary_key=True)
+    id = db.Column(db.Integer,primary_key=True)
+    ancestor = db.Column(db.Integer,db.ForeignKey('category.id'))
+    descendants = db.Column(db.Integer, db.ForeignKey('category.id'))
